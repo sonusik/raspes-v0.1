@@ -1,0 +1,3531 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Расписание
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <style>
+            body {
+                font-family: sans-serif;
+                background-color: rgb(112, 132, 185);
+                font-weight: bold;
+            }
+            .cont-1{
+                width: auto;
+                height: auto;
+                background-color: #fff;
+            }
+
+            
+            table {
+             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+			border-collapse: collapse;
+			margin: 20px 0;
+		}
+
+		th, td {
+			padding: 10px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+
+		th {
+			background-color: #fff;
+		}
+        .btn{
+            width: 135px;
+            height: 40px;
+        }
+        .pressed-button {
+        text-decoration: none;
+        display: inline-block;
+        padding: 12px 40px;
+        margin: 12px 20px;
+        border-radius: 30px;
+        background-image: linear-gradient(45deg, #6a7ed7 0%, #33d9de 50%, #002878 100%);
+        background-position: 100% 0;
+        background-size: 200% 200%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14px;
+        text-align: center;
+        font-weight: 300;
+        color: white;
+        box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);
+        transition: .5s;
+        }
+        .pressed-button:hover {
+        box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+        background-position: 0 0;
+        }
+        </style>
+        <script type="text/javascript">
+            function toggleSchedule() {
+                var schedule = document.getElementById("schedule");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule2() {
+                var schedule = document.getElementById("schedule2");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule3() {
+                var schedule = document.getElementById("schedule3");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule4() {
+                var schedule = document.getElementById("schedule4");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule5() {
+                var schedule = document.getElementById("schedule5");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule6() {
+                var schedule = document.getElementById("schedule6");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule7() {
+                var schedule = document.getElementById("schedule7");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule8() {
+                var schedule = document.getElementById("schedule8");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule9() {
+                var schedule = document.getElementById("schedule9");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule10() {
+                var schedule = document.getElementById("schedule10");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule11() {
+                var schedule = document.getElementById("schedule11");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule12() {
+                var schedule = document.getElementById("schedule12");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule13() {
+                var schedule = document.getElementById("schedule13");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+            function toggleSchedule14() {
+                var schedule = document.getElementById("schedule14");
+                if (schedule.style.display === "none") {
+                    schedule.style.display = "block";
+                } else {
+                    schedule.style.display = "none";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="flex-box">
+            <div class="cont-1" id="header">
+                 <p></p>
+            <h1 ALIGN="center" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: rgb(75, 95, 146);font-size: 60px;"><em><b>Расписание занятий для групп</b></em></h1><p>
+          <!--  <h2 ALIGN="center" style="font-family: Lucida Console, Monaco, monospace;color: rgb(75, 95, 146);"><em><b>Группы - АТ 20-11, АТ 21-11, АТ 22-11, ДО 20-11-1, ДО 20-11-2</b></em></h2><br> -->
+            </div>
+            </div>
+        <div class="text-box flex-box">
+            <a type="button"  onclick="toggleSchedule()"  style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">АТ 20-11</a>
+            <a type="button"  onclick="toggleSchedule2()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">АТ 21-11</a>
+            <a type="button"  onclick="toggleSchedule3()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">АТ 22-11</a>
+            <a type="button"  onclick="toggleSchedule4()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 20-11-1</a>
+            <a type="button"  onclick="toggleSchedule5()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 20-11-2</a>
+            <a type="button"  onclick="toggleSchedule6()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 21-11-1</a>
+            <a type="button"  onclick="toggleSchedule7()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 21-11-2</a>
+            <a type="button"  onclick="toggleSchedule8()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 22-11-1</a>
+            <a type="button"  onclick="toggleSchedule9()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ДО 22-11-2</a>
+            <a type="button"  onclick="toggleSchedule10()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ИБАС 21-11</a>
+            <a type="button"  onclick="toggleSchedule11()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ИБАС 22-11</a>
+            <a type="button"  onclick="toggleSchedule12()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ИСиП 20-11-1</a>
+            <a type="button"  onclick="toggleSchedule13()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ИСиП 20-11-2</a>
+            <a type="button"  onclick="toggleSchedule14()" style="width: auto;height: 40px;background-color: #f2f2f2;" class="pressed-button">ИСиП 20-11-3</a>
+        </div>
+        <table id="schedule" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">АТ 20-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule2" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">АТ 21-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule3" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">АТ 22-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">АТ 20-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule4" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 20-11-1</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule5" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 20-11-2</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule6" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 21-11-1</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule7" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 21-11-2</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">АТ 20-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule8" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 22-11-1</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule9" style="display: none;" class="flex-box">
+            <tr class="flex-box">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ДО 22-11-2</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule10" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ИБАС 21-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule11" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ИБАС 22-11</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule12" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="height: 30px;width: 100px;background-color: #ff6075;">ИСиП 20-11-1</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule13" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="background-color: #ff6075;">ИСиП 20-11-2</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+        <table id="schedule14" style="display: none;" class="flex-box">
+            <tr class="flex-box" style="text-align: center;">
+                <th style="width: 30px;width: 100px;background-color: #ff6075;">ИСиП 20-11-3</th>
+                <th>Понедельник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Вторник</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Среда</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Четверг</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Пятница</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+                <th>Суббота</th>
+                <th style="background-color: #d6f7ff;">Ауд.</th>
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">1.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">2.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">3.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">4.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">5.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">6.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">7.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">8.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">9.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">10.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">11.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+
+            </tr>
+            <tr class="flex-box">
+                <td style="background-color: #fff;">12.</td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+                <td style="background-color: #ffdfd5;"></td>
+                <td style="background-color: #d6f7ff;"></td>
+            </tr>
+        </table>
+    </body>
+</html>
